@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Deck_Draw.Models.Card>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Card Value
+        </th>
+        <th>
+            Card Face
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var c in ViewBag.Hand) {
+    <tr>
+        <td>
+            @c.Name;
+        </td>
+        <td>
+            <img src="@c.ImagePath" alt="Card Pic" width="75"/>
+        </td>
+        <td>
+            @Html.ActionLink("Draw a New Hand", "Index")
+        </td>
+    </tr>
+}
+
+</table>
